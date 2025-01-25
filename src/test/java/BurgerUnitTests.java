@@ -78,5 +78,34 @@ public class BurgerUnitTests {
         Assert.assertEquals(expectedReceipt, burger.getReceipt());
     }
 
+    @Test
+    public void addIngredientIncreaseSize() {
+        Burger burger = new Burger();
+        burger.addIngredient(cheese);
+        Assert.assertEquals(1, burger.ingredients.size());
+    }
+
+    @Test
+    public void removeIngredientDecreaseSize() {
+        Burger burger = new Burger();
+        burger.addIngredient(cheese);
+        burger.removeIngredient(0);
+        Assert.assertEquals(0, burger.ingredients.size());
+    }
+
+
+    @Test
+    public void getReceiptForBurgerWithCheese() {
+        Burger burger = new Burger();
+        burger.addIngredient(cheese);
+        burger.setBuns(whiteBun);
+        String actualReceipt = burger.getReceipt();
+        String expectedReceipt = "(==== null ====)\n" +
+                "= filling cheese =\n" +
+                "(==== null ====)\n" +
+                "\n" +
+                "Price: 4,300000\n";
+        Assert.assertEquals(expectedReceipt, actualReceipt);
+    }
 
 }

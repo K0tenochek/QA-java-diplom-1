@@ -2,8 +2,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.testng.asserts.SoftAssert;
 import praktikum.Bun;
+
 
 @RunWith(Parameterized.class)
 public class BunUnitTests {
@@ -28,15 +28,15 @@ public class BunUnitTests {
         };
     }
 
+    private static final float DELTA = 0.0001f;
+
     @Test
     public void checkNameAndPriceForBun() {
-        SoftAssert softAssert = new SoftAssert();
         Bun bun = new Bun(name, price);
         String actualName = bun.getName();
         float actualPrice = bun.getPrice();
-        softAssert.assertEquals(name, actualName);
-        softAssert.assertEquals(price, actualPrice, 0.0001);
-        softAssert.assertAll();
+        Assert.assertEquals(name, actualName);
+        Assert.assertEquals(price, actualPrice, DELTA);
 
     }
 }

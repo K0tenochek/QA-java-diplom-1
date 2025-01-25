@@ -29,13 +29,23 @@ public class IngredientUnitTests {
     }
 
     @Test
-    public void checkTypeNamePriceOfIngredients() {
+    public void checkTypeOfIngredients() {
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actualType = ingredient.getType();
-        String actualName = ingredient.getName();
-        float actualPrice = ingredient.getPrice();
         Assert.assertEquals(type, actualType);
+    }
+
+    @Test
+    public void checkNameOfIngredients() {
+        Ingredient ingredient = new Ingredient(type, name, price);
+        String actualName = ingredient.getName();
         Assert.assertEquals(name, actualName);
+    }
+
+    @Test
+    public void checkPriceOfIngredient() {
+        Ingredient ingredient = new Ingredient(type, name, price);
+        float actualPrice = ingredient.getPrice();
         Assert.assertEquals(price, actualPrice, 0.0001);
     }
 }
